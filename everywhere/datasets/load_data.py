@@ -34,13 +34,7 @@ def get_event_attendees_data():
     return pd.read_csv(url)
 
 
-def get_event_popularities_data():
-    """Downloads the event_popularity_benchmark dataset from drive and returns a pandas dataframe."""
-    url = url_to_drive("https://drive.google.com/file/d/1EjK7V8e9Zq3q6eHv6Q2Q6Ujz6u5fR0wD/view?usp=share_link")
-    return pd.read_csv(url)
-
-
 def url_to_drive(url):
     """Converts a google drive url to a downloadable url."""
-    url = 'https://drive.google.com/uc?id=' + url.split('/')[-2]
+    url = 'https://www.googleapis.com/drive/v3/files/' + url.split('/')[-2] + '?alt=media&key=' + 'AIzaSyBdwGSwa_64SYxbOIgSkVflc3wz8ljU248'
     return url
