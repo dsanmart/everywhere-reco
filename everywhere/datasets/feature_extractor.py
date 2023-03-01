@@ -68,3 +68,5 @@ def get_event_attendee_nums(train_df, event_attendees_df):
     merged_df['users_no'] = merged_df.apply (lambda row: count_words(row, 'no'), axis=1)
     merged_df['users_maybe'] = merged_df.apply (lambda row: count_words(row, 'maybe'), axis=1)
     merged_df['users_invited_count'] = merged_df.apply (lambda row: count_words(row, 'invited_y'), axis=1)
+
+    return merged_df
