@@ -13,8 +13,8 @@ install_requires = [
     "pandas>1.0.3,<2",
     "ipykernel>=4.6.1,<7",
     "pytest>=3.6.4",
-    "scikit-learn>=0.20.3,<1",
-    "imbalanced-learn>=0.4.3,<1",
+    "scikit-learn>=0.20.3",
+    "imblearn",
 ]
 
 setup(
