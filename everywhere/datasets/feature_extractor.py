@@ -18,3 +18,16 @@ def get_friends_status(row, event_attendees_df):
     
     return [len(friends_attending), len(friends_not_attending), len(friends_maybe_attending), len(friends_invited)]
 
+def count_words(row, col_name):
+    if(type(row[col_name]) != str):
+        return 0
+    return len(row[col_name].split())
+
+def get_friends_attendee_nums(train_df, friends_df, event_attendees_df):
+    # merge train_df with friends_df
+    merged_df = pd.merge(train_df, friends_df, how='inner', left_on='user', right_on='user')
+    merged_df['friends_attending'], merged_df['friends_not_attending'], merged_df['friends_maybe_attending'], merged_df['friends_invited'] = zip(*merged_df.apply(lambda row: get_friends_status(row, event_attendees_df), axis=1))
+    # convert friends column to number of friends
+    merged_df['friends'] = merged_df.apply (lambda row: count_words(row, 'friends'), axis=1)
+    return merged_df
+
