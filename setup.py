@@ -12,7 +12,9 @@ install_requires = [
     "numpy>=1.19",  # 1.19 required by tensorflow 2.6
     "pandas>1.0.3,<2",
     "ipykernel>=4.6.1,<7",
-    "pytest>=3.6.4"
+    "pytest>=3.6.4",
+    "scikit-learn>=0.20.3,<1",
+    "imbalanced-learn>=0.4.3,<1",
 ]
 
 setup(
