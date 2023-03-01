@@ -1,6 +1,7 @@
 '''This module contains functions extract features from the datasets.'''
 
 import pandas as pd
+import numpy as np
 
 def get_friends_status(row, event_attendees_df):
     """Returns the number of friends attending, not attending, maybe attending, and invited to the event.
