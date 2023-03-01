@@ -2,7 +2,6 @@ import pandas
 import pytest
 from  everywhere.datasets.load_data import get_users_data
 
-from everywhere.utils.constants import DEFAULT_HEADER
 
 def url_to_drive(url):
     """Converts a google drive url to a downloadable url."""
