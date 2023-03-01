@@ -20,6 +20,6 @@ setup(
     version=version,
     install_requires=install_requires,
     package_dir={"everywhere": "everywhere"},
-    python_requires=">=3.6, <3.10",
+    python_requires=">=3.6, <3.11",
     packages=find_packages(where=".", exclude=["docs", "examples", "tests"])
 )
