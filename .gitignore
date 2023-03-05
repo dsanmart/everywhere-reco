@@ -131,3 +131,9 @@ dmypy.json
 
 # local csvs
 examples/local_data
+
+# local env
+.env
+
+# VSCode
+.vscode/
