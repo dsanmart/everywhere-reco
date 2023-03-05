@@ -1,6 +1,10 @@
 name: Test data
 
 on:
+  commit:
+    # Only trigger the workflow with a commit to main
+    branches:
+    - dev
   pull_request:
     # Only trigger the workflow with a PR to main
     branches:
