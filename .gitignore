@@ -130,7 +130,7 @@ dmypy.json
 .pyre/
 
 # local csvs
-examples/local_data
+local_data/
 
 # local env
 .env

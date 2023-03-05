@@ -15,7 +15,8 @@ install_requires = [
     "pytest>=3.6.4",
     "scikit-learn>=0.20.3",
     "imblearn",
-    "python-dotenv==1.0.0"
+    "python-dotenv==1.0.0",
+    "lightgbm>=3.3.5"
 ]
 
 setup(
