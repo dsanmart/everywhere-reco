@@ -4,7 +4,7 @@ on:
   push:
     # Only trigger the workflow with a commit to main
     branches:
-    - dev
+    - main
   pull_request:
     # Only trigger the workflow with a PR to main
     branches:
@@ -12,10 +12,6 @@ on:
 
   # Enable manual trigger
   workflow_dispatch:
-    input:
-      tags:
-        description: 'Tags to label this manual run (optional)'
-        default: 'Manual run'
 
 jobs:
   build:
