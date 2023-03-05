@@ -15,6 +15,12 @@ def get_users_data(filepath="local_data/users.csv", force_download=False):
     Returns:
     pandas.DataFrame: A dataframe containing the downloaded users dataset.
     """
+
+    # if local_data doesnt exists, create it
+    if not os.path.exists("local_data"):
+        os.mkdir("local_data")
+
+
     df = maybe_download(filepath=filepath, url="https://drive.google.com/file/d/1DOz_YmB6VgLg3z6Xy9R6iYP6lVphK4o4/view?usp=share_link", dataset_name="users", force_download=force_download)
     return df
 
@@ -29,6 +35,11 @@ def get_events_data(filepath="local_data/events.csv", force_download=False):
     Returns:
     pandas.DataFrame: A dataframe containing the downloaded events dataset.
     """
+
+    # if local_data doesnt exists, create it
+    if not os.path.exists("local_data"):
+        os.mkdir("local_data")
+        
     df = maybe_download(filepath=filepath, url="https://drive.google.com/file/d/1KehUtKFzjqGOxHMFNO9tf-MR5QRR7H9J/view?usp=share_link", 
                         dataset_name="events", 
                         force_download=force_download)
@@ -45,6 +56,12 @@ def get_train_data(filepath="local_data/train.csv", force_download=False):
     Returns:
     pandas.DataFrame: A dataframe containing the downloaded train dataset.
     """
+
+    # if local_data doesnt existscreate it
+
+    if not os.path.exists("local_data"):
+        os.mkdir("local_data")
+        
     df = maybe_download(filepath=filepath, 
                         url="https://drive.google.com/file/d/1zAdnZ1oBMaGfQAlKdQhM47oYt2zEAGx8/view?usp=share_link", 
                         dataset_name="train", 
@@ -62,6 +79,11 @@ def get_user_friends_data(filepath="local_data/user_friends.csv", force_download
     Returns:
     pandas.DataFrame: A dataframe containing the downloaded user_friends dataset.
     """
+
+    # if local_data doesnt exists, create it
+    if not os.path.exists("local_data"):
+        os.mkdir("local_data")
+        
     df = maybe_download(filepath=filepath, 
                         url="https://drive.google.com/file/d/1-U8ZBxhjtXYXG51Tiu6N-mNbOTh51UjE/view?usp=share_link", 
                         dataset_name="user_friends",
