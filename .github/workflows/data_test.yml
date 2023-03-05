@@ -1,7 +1,7 @@
 name: Test data
 
 on:
-  commit:
+  push:
     # Only trigger the workflow with a commit to main
     branches:
     - dev
