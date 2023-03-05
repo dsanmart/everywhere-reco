@@ -4,7 +4,7 @@ on:
   push:
     # Only trigger the workflow with a commit to main
     branches:
-    - main
+    - dev
   pull_request:
     # Only trigger the workflow with a PR to main
     branches:
