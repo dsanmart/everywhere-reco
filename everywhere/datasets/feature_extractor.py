@@ -3,6 +3,7 @@
 import pandas as pd
 import numpy as np
 
+
 def get_friends_status(row, event_attendees_df):
     """Returns the number of friends attending, not attending, maybe attending, and invited to the event.
     
@@ -12,7 +13,7 @@ def get_friends_status(row, event_attendees_df):
         
     Returns:
         list: A list containing the number of friends attending, not attending, maybe attending, and invited to the event."""
-
+    
     event = row['event']
     friends = str(row['friends']).split(' ')
     ppl_attending = str(event_attendees_df.iloc[np.where(event_attendees_df['event']==event)[0][0]]['yes']).split(' ')
@@ -26,12 +27,21 @@ def get_friends_status(row, event_attendees_df):
     
     return [len(friends_attending), len(friends_not_attending), len(friends_maybe_attending), len(friends_invited)]
 
-def count_words(row, col_name):
-    """Counts the number of words in a column."""
 
+def count_words(row, col_name):
+    """Counts the number of words in a column.
+    
+    Args:
+    row (pandas.Series): A row from the dataframe.
+    col_name (str): The column name of the column to count.
+
+    Returns:
+        int: The number of words in the specified column."""
+    
     if(type(row[col_name]) != str):
         return 0
     return len(row[col_name].split())
+
 
 def get_friends_attendee_nums(train_df, friends_df, event_attendees_df):
     """Returns a dataframe with the number of friends attending, not attending, maybe attending, and invited to the event.
@@ -51,6 +61,7 @@ def get_friends_attendee_nums(train_df, friends_df, event_attendees_df):
     # convert friends column to number of friends
     merged_df['friends'] = merged_df.apply (lambda row: count_words(row, 'friends'), axis=1)
     return merged_df
+
 
 def get_event_attendee_nums(train_df, event_attendees_df):
     """Returns a dataframe with the number of people attending, not attending, maybe attending, and invited to the event.
