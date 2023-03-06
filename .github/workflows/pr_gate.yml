@@ -55,5 +55,7 @@ jobs:
         pip list
 
     - name: Run tests
+      env:
+        DRIVE_API: ${{ secrets.DRIVE_API_CREDENTIALS }}
       run: |
         pytest tests --disable-warnings --durations 0
