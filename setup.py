@@ -6,7 +6,7 @@ here = Path(__file__).absolute().parent
 version_data = {}
 with open(here.joinpath("everywhere", "__init__.py"), "r") as f:
     exec(f.read(), version_data)
-version = version_data.get("__version__", "0.1.0")
+version = version_data.get("__version__", "0.0")
 
 install_requires = [
     "numpy>=1.24.2", 
