@@ -2,6 +2,9 @@ name: Azure Bicep Infra
 
 on: 
   workflow_dispatch:
+  push:
+    branches:
+      - cloud_features
 
 jobs:
   build:
