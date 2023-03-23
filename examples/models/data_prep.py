@@ -3,6 +3,7 @@
 # MAGIC #### Everywhere preprocessing
 
 # COMMAND ----------
+
 import os 
 import pandas as pd
 import numpy as np
@@ -24,10 +25,11 @@ from everywhere.datasets.feature_extractor import (
 
 # COMMAND ----------
 
-
+# MAGIC 
 # MAGIC %md #### Load Datasets
 
 # COMMAND ----------
+
 # load environment variables
 load_dotenv()  
 
@@ -57,26 +59,29 @@ df_user_friends.head()
 # MAGIC %md #### Load Events Attendees Data
 
 # COMMAND ----------
+
 df_event_attendees = get_event_attendees_data(cloud=True)
 print(df_event_attendees.shape)
 df_event_attendees.head()
 
 # COMMAND ----------
 
-
+# MAGIC 
 # MAGIC %md #### Load train Data
 
 # COMMAND ----------
+
 df_train = get_train_data(cloud=True)
 print(df_train.shape)
 df_train.head()
 
 # COMMAND ----------
 
-
+# MAGIC 
 # MAGIC %md #### Load Events Data
 
 # COMMAND ----------
+
 df_events = get_events_data(cloud=True)
 print(df_events.shape)
 df_events.head()
@@ -86,6 +91,7 @@ df_events.head()
 # MAGIC %md #### Feature Engineering
 
 # COMMAND ----------
+
 df_train = get_friends_attendee_nums(df_train, df_user_friends, df_event_attendees)
 df_train
 
@@ -94,6 +100,7 @@ df_train
 # MAGIC %md #### Merge with Events Data
 
 # COMMAND ----------
+
 df_train = get_event_attendee_nums(df_train, df_event_attendees)
 print(df_train.shape)
 df_train.head()
@@ -116,10 +123,11 @@ df_train
 
 # COMMAND ----------
 
-
+# MAGIC 
 # MAGIC %md #### Balance dataset with Cluster Centroid
 
 # COMMAND ----------
+
 data = df_train.copy()
 X = data.drop("interested", axis=1)
 y = data["interested"]
@@ -140,9 +148,18 @@ final
 
 # COMMAND ----------
 
+# MAGIC %md #### Save dataset to Azure Blob
 
+# COMMAND ----------
 
-
-
-
-
+from azure.storage.blob import BlobServiceClient
+storage_account_name = os.getenv("STORAGE_ACCOUNT_NAME")
+storage_account_access_key = os.getenv("STORAGE_ACCOUNT_ACCESS_KEY")
+container = os.getenv("FILE_SYSTEM_NAME")
+local_file_name = "balanced_dataset.csv"
+blob_service_client = BlobServiceClient(f"https://{storage_account_name}.blob.core.windows.net", credential=storage_account_access_key)
+# Create a blob client
+blob_client = blob_service_client.get_blob_client(container=container, blob=local_file_name)
+print("\nUploading to Azure Storage as blob:\n\t" + local_file_name)
+# Upload the created file
+blob_client.upload_blob(data=final.to_csv(index=False))
