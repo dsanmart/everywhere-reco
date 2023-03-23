@@ -24,7 +24,7 @@ def maybe_download(filepath, url, dataset_name=None, force_download=False, cloud
         conn_str = "DefaultEndpointsProtocol=https;AccountName={};AccountKey={};EndpointSuffix=core.windows.net".format(
             storage_account_name, storage_account_access_key
         )
-        blob_name = filepath.remove("local_data/")
+        blob_name = filepath.split("/")[1] # get the file name
         container_client = ContainerClient.from_connection_string(
             conn_str=conn_str, container_name=container
         )
