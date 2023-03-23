@@ -16,7 +16,8 @@ install_requires = [
     "scikit-learn>=0.20.3",
     "imblearn",
     "python-dotenv==1.0.0",
-    "lightgbm>=3.3.5"
+    "lightgbm>=3.3.5",
+    "azure-storage-blob>=12.15.0",
 ]
 
 setup(
