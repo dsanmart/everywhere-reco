@@ -1,3 +1,7 @@
+# Databricks notebook source
+# MAGIC %md
+# MAGIC #### Everywhere preprocessing
+
 # COMMAND ----------
 
 from everywhere.datasets.load_data import (
