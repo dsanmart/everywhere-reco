@@ -3,6 +3,7 @@
 # MAGIC #### Everywhere preprocessing
 
 # COMMAND ----------
+import os 
 import pandas as pd
 import numpy as np
 from dotenv import load_dotenv  # load environment variables
@@ -37,7 +38,7 @@ load_dotenv()
 
 # COMMAND ----------
 
-df_users = get_users_data()
+df_users = get_users_data(cloud=True)
 print(df_users.shape)
 df_users.head()
 
@@ -47,7 +48,7 @@ df_users.head()
 
 # COMMAND ----------
 
-df_user_friends = get_user_friends_data()
+df_user_friends = get_user_friends_data(cloud=True)
 print(df_user_friends.shape)
 df_user_friends.head()
 
@@ -56,7 +57,7 @@ df_user_friends.head()
 # MAGIC %md #### Load Events Attendees Data
 
 # COMMAND ----------
-df_event_attendees = get_event_attendees_data()
+df_event_attendees = get_event_attendees_data(cloud=True)
 print(df_event_attendees.shape)
 df_event_attendees.head()
 
@@ -66,7 +67,7 @@ df_event_attendees.head()
 # MAGIC %md #### Load train Data
 
 # COMMAND ----------
-df_train = get_train_data()
+df_train = get_train_data(cloud=True)
 print(df_train.shape)
 df_train.head()
 
@@ -76,7 +77,7 @@ df_train.head()
 # MAGIC %md #### Load Events Data
 
 # COMMAND ----------
-df_events = get_events_data()
+df_events = get_events_data(cloud=True)
 print(df_events.shape)
 df_events.head()
 
@@ -90,12 +91,16 @@ df_train
 
 # COMMAND ----------
 
+# MAGIC %md #### Merge with Events Data
+
 # COMMAND ----------
 df_train = get_event_attendee_nums(df_train, df_event_attendees)
 print(df_train.shape)
 df_train.head()
 
 # COMMAND ----------
+
+# MAGIC %md #### Merge with Users Data
 
 # COMMAND ----------
 
