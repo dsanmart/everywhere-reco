@@ -8,6 +8,7 @@ import os
 import pandas as pd
 import numpy as np
 from dotenv import load_dotenv  # load environment variables
+from sklearn.metrics import precision_score, recall_score, f1_score, average_precision_score, ndcg_score
 from imblearn.under_sampling import ClusterCentroids
 from collections import Counter
 from everywhere.datasets.load_data import (
