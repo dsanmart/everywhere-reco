@@ -1,3 +1,7 @@
+<img align="center" width="100%" src="../assets/logo.jpg" > 
+<br>
+<br>
+
 # Methodology
 
 The recommendation system will be based on a hybrid version type of collaborative and content based filtering  approach, which utilises past user behaviour to predict future preferences. The system will use a [Dataset](/docs/source/datasets.md) to analyse the user's past event attendance history, demographic information, and music preferences to suggest events that align with the user's interests.

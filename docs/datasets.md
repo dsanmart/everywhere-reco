@@ -1,4 +1,4 @@
-# Datasets for the Everywhere project
+# Datasets for the Everywhere Recommender Engine
 
 At first, we requested events and user data from applications like [Fourvenues](https://www.fourvenues.com/es) and [Guru it!](https://guruitapp.com/en/inicio). However, due to their unresponsiveness and delayed replies to our emails, we had to resort to utilizing a publicly accessible dataset. The [Kaggle Events Dataset](https://www.kaggle.com/competitions/event-recommendation-engine-challenge/data) we utilized was obtained from an anonymous events application that held a public competition several years ago. Here is a synopsis of the dataset elements we employed.
 
