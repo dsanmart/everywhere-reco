@@ -1,4 +1,7 @@
 # Everywhere recommendation
+
+<img src="https://github.com/dsanmart/everywhere-reco/blob/main/assets/everywhere%20recommender.gif" alt="" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
+
 <img align="center" width="700" height="150" src="assets/logo.jpg" > 
 
 #
